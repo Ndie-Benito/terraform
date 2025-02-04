@@ -16,7 +16,7 @@ resource "azurerm_storage_account" "storage" {
   }
 }
 
-resource "azurerm_storage_container" "container" {
+/*resource "azurerm_storage_container" "container" {
   name                  = "mycontainer47ben"
   storage_account_name  = azurerm_storage_account.storage.name
   container_access_type = "private" # Options : private, blob, container
@@ -28,4 +28,4 @@ output "storage_account_name" {
 
 output "storage_container_name" {
   value = azurerm_storage_container.container.name
-}
+}*/
