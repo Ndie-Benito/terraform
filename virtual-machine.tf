@@ -36,6 +36,7 @@ resource "azurerm_linux_virtual_machine" "vm_benito" {
   location            = azurerm_resource_group.rg_benito.location
   size                = "Standard_F2"
   admin_username      = var.admin_username
+  disable_password_authentication = false
   network_interface_ids = [
     azurerm_network_interface.nic_benito.id,
   ]
