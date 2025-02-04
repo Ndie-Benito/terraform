@@ -1,5 +1,5 @@
 
-resource "azurerm_resource_group" "rg" {
+/*resource "azurerm_resource_group" "rg" {
   name     = "my-resource-group"
   location = "East US" # Change selon ta région Azure
 }
@@ -14,7 +14,7 @@ resource "azurerm_storage_account" "storage" {
   tags = {
     environment = "dev"
   }
-}
+}*/
 
 /*resource "azurerm_storage_container" "container" {
   name                  = "mycontainer47ben"
