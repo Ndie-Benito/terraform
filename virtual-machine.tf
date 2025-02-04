@@ -1,6 +1,4 @@
-*/
-
-resource "azurerm_resource_group" "rg_benito" {
+*/resource "azurerm_resource_group" "rg_benito" {
   name     = "rgvm"
   location = "West Europe"
 }
