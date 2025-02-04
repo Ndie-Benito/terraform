@@ -40,10 +40,7 @@ resource "azurerm_linux_virtual_machine" "vm_benito" {
     azurerm_network_interface.nic_benito.id,
   ]
 
-  admin_ssh_key {
-    username   = "adminuser"
-    public_key = file("~/.ssh/id_rsa.pub")
-  }
+admin_password = "7407@&*&@("
 
   os_disk {
     caching              = "ReadWrite"
