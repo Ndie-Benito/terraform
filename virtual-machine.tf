@@ -1,17 +1,17 @@
 
-resource "azurerm_resource_group" "example" {
+resource "azurerm_resource_group" "rg_benito" {
   name     = "rgvm"
   location = "West Europe"
 }
 
-resource "azurerm_virtual_network" "example" {
-  name                = "example-network"
+resource "azurerm_virtual_network" "vnet-benito" {
+  name                = "vn_benito"
   address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.benito.location
+  resource_group_name = azurerm_resource_group.benito.name
 }
 
-resource "azurerm_subnet" "example" {
+resource "azurerm_subnet" "subnet1" {
   name                 = "internal"
   resource_group_name  = azurerm_resource_group_vm
   virtual_network_name = azurerm_virtual_network.vnt
@@ -20,25 +20,25 @@ resource "azurerm_subnet" "example" {
 
 resource "azurerm_network_interface" "nic" {
   name                = "vm-nic"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.cace.location
+  resource_group_name = azurerm_resource_group.cace.name
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.example.id
+    subnet_id                     = azurerm_subnet.benito.id
     private_ip_address_allocation = "Dynamic"
   }
 }
 
 resource "azurerm_windows_virtual_machine" "example" {
-  name                = "example-machine"
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
+  name                = "benito-machine"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.cace.location
   size                = "Standard_F2"
   admin_username      = "adminuser"
   admin_password      = "P@$$w0rd1234!"
   network_interface_ids = [
-    azurerm_network_interface.example.id,
+    azurerm_network_interface.ni.id,
   ]
 
   os_disk {
