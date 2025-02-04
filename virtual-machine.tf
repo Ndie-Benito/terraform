@@ -35,12 +35,12 @@ resource "azurerm_linux_virtual_machine" "vm_benito" {
   resource_group_name = azurerm_resource_group.rg_benito.name
   location            = azurerm_resource_group.rg_benito.location
   size                = "Standard_F2"
-  admin_username      = "adminuser"
+  admin_username      = var.admin_username
   network_interface_ids = [
     azurerm_network_interface.nic_benito.id,
   ]
 
-admin_password = "74Mb07@&*&@("
+admin_password = var.admin_password
 
   os_disk {
     caching              = "ReadWrite"
