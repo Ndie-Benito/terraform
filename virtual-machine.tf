@@ -56,9 +56,6 @@ resource "azurerm_windows_virtual_machine" "benito_windows" {
 
 
 
-provider "azurerm" {
-  features {}
-}
 
 resource "azurerm_resource_group" "rg_benito" {
   name     = "rg_benito"
