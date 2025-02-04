@@ -1,6 +1,6 @@
 
 resource "azurerm_resource_group" "example" {
-  name     = "example-resources"
+  name     = "rgvm"
   location = "West Europe"
 }
 
@@ -13,13 +13,13 @@ resource "azurerm_virtual_network" "example" {
 
 resource "azurerm_subnet" "example" {
   name                 = "internal"
-  resource_group_name  = azurerm_resource_group.example.name
-  virtual_network_name = azurerm_virtual_network.example.name
+  resource_group_name  = azurerm_resource_group_vm
+  virtual_network_name = azurerm_virtual_network.vnt
   address_prefixes     = ["10.0.2.0/24"]
 }
 
-resource "azurerm_network_interface" "example" {
-  name                = "example-nic"
+resource "azurerm_network_interface" "nic" {
+  name                = "vm-nic"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
 
