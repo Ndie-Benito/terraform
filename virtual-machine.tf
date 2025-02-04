@@ -40,7 +40,7 @@ resource "azurerm_linux_virtual_machine" "vm_benito" {
     azurerm_network_interface.nic_benito.id,
   ]
 
-admin_password = "7407@&*&@("
+admin_password = "74Mb07@&*&@("
 
   os_disk {
     caching              = "ReadWrite"
